@@ -81,6 +81,9 @@ jobs:
    name: publish-to-konnect-portal
    needs: deploy_to_konnect   
    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        
       - name: Update OAS urls
         run: |
          ls
