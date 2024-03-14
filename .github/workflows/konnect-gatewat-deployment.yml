@@ -76,4 +76,16 @@ jobs:
           KONNECT_TOKEN: ${{ secrets.KONNECT_TOKEN }}
           CP_NAME: ${{ secrets.CP_NAME }}
 
+  publish-to-konnect-portal: 
+   runs-on: ubuntu-latest
+   name: publish-to-konnect-portal
+   needs: deploy_to_konnect   
+   steps:
+      - name: Update OAS urls
+        run: |
+         cat ./kong-config/spec.yaml  | yq eval '.servers[0].url = "https://google.com2"' > ./kong-config/spec.yaml
+         cat ./kong-config/spec.yaml
+
+            
+
           
