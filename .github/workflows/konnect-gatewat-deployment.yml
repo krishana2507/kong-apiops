@@ -87,7 +87,6 @@ jobs:
       - name: Update OAS urls
         run: |
          ls
-         cat ./kong-config/spec.yaml  | yq eval '.servers[0].url = "https://google.com2"' > ./kong-config/spec.yaml
          cat ./kong-config/spec.yaml
 
             
